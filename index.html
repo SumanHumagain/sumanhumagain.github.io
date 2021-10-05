@@ -15,12 +15,19 @@
    })();
  
 	function sendEmail(){
-			emailjs.sendForm('service_gfb79qn', 'template_rvkq0Qj7', '#myForm')
-    .then(function(response) {
+		debugger;
+			var templateParams = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    subject: document.getElementById('subject').value,
+    body: document.getElementById('message').value };
+
+emailjs.send('service_gfb79qn', 'template_rvkq0Qj7', templateParams)
+    .then(function(response) {debugger;
        console.log('SUCCESS!', response.status, response.text);
     }, function(error) {
        console.log('FAILED...', error);
-    });	
+    });
 	}
 		</script>
 		
