@@ -6,6 +6,24 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("Suman Humagain");
+   })();
+ 
+	function sendEmail(){
+			emailjs.sendForm('service_gfb79qn', 'template_rvkq0Qj7', '#myForm')
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });	
+	}
+		</script>
+		
 	</head>
 	<body class="is-preload">
 
@@ -191,7 +209,7 @@
 					</header>
 					<div class="row">
 						<div class="col-12">
-							<form method="post" action="#">
+							<form method="post" #myForm>
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<input type="text" name="name" id="name" placeholder="Name" />
@@ -207,7 +225,7 @@
 									</div>
 									<div class="col-12">
 										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
+											<li><input type="submit" onclick="sendEmail()" value="Send Message" /></li>
 											<li><input type="reset" value="Clear Form" class="alt" /></li>
 										</ul>
 									</div>
