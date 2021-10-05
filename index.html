@@ -25,6 +25,7 @@
 emailjs.send('service_gfb79qn', 'template_rvkq0Qj7', templateParams,'user_3Uejg691MvNNA6c0OfUbF')
     .then(function(response) {debugger;
        console.log('SUCCESS!', response.status, response.text);
+       document.getElementById("myForm").reset();
     }, function(error) {
        console.log('FAILED...', error);
     });
@@ -216,7 +217,7 @@ emailjs.send('service_gfb79qn', 'template_rvkq0Qj7', templateParams,'user_3Uejg6
 					</header>
 					<div class="row">
 						<div class="col-12">
-							<form #myForm>
+							<form id="myForm">
 								<div class="row">
 									<div class="col-6 col-12-small">
 										<input type="text" name="name" id="name" placeholder="Name" />
