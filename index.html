@@ -22,6 +22,11 @@
     subject: document.getElementById('subject').value,
     body: document.getElementById('message').value };
 
+		if(templateParams.email == "" || templateParams.body==""){
+			alert("Please fill up contact form.");
+			return false;
+		}
+		
 emailjs.send('service_gfb79qn', 'template_rvkq0Qj7', templateParams,'user_3Uejg691MvNNA6c0OfUbF')
     .then(function(response) {debugger;
        console.log('SUCCESS!', response.status, response.text);
