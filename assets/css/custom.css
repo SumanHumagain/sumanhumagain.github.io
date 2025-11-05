@@ -118,6 +118,7 @@ h3 { font-size: 1.75rem; }
     border-radius: 0.5rem;
     transition: var(--transition);
     position: relative;
+    background: transparent;
 }
 
 #nav li a::after {
@@ -132,13 +133,28 @@ h3 { font-size: 1.75rem; }
     transition: width 0.3s ease;
 }
 
+#nav li a:hover {
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+#nav li a.active {
+    color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.15);
+}
+
 #nav li a:hover::after,
 #nav li a.active::after {
     width: 80%;
 }
 
-#nav li a:hover {
-    color: var(--primary-color);
+/* Light mode navigation colors */
+[data-theme="light"] #nav li a:hover {
+    background: rgba(99, 102, 241, 0.08);
+}
+
+[data-theme="light"] #nav li a.active {
+    background: rgba(99, 102, 241, 0.12);
 }
 
 /* Theme Toggle Button */
