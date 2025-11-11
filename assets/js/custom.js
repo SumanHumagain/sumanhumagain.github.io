@@ -88,9 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 strings: [
                     'Full Stack Software Developer',
                     'Web Developer',
-                    'AI Engineer',
-                    '.NET Developer',
-                    'MERN Stack Developer'
+                    'AI enthusiast',
                 ],
                 typeSpeed: 50,
                 backSpeed: 30,
@@ -351,3 +349,4 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     document.body.classList.remove('is-preload');
 });
+
