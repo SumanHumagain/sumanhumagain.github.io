@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ================================
-    // Smooth Scrolling for Navigation
+    // Smooth Scrolling for Navigation (Faster)
     // ================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -145,10 +145,30 @@ document.addEventListener('DOMContentLoaded', function() {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 const offsetTop = target.offsetTop - 70;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+
+                // Faster custom smooth scroll
+                const startPosition = window.pageYOffset;
+                const distance = offsetTop - startPosition;
+                const duration = 600; // Reduced from default (was ~2000ms)
+                let start = null;
+
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = ease(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+
+                // Easing function for smooth deceleration
+                function ease(t, b, c, d) {
+                    t /= d / 2;
+                    if (t < 1) return c / 2 * t * t + b;
+                    t--;
+                    return -c / 2 * (t * (t - 2) - 1) + b;
+                }
+
+                requestAnimationFrame(animation);
             }
         });
     });
