@@ -1,451 +1,466 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Suman Humagain - Full Stack Software Developer</title>
+	<title>root@suman:~$ whoami</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="Full Stack Software Developer specializing in .NET, MERN Stack, and AI Development" />
-	<meta name="keywords" content="Full Stack Developer, Software Engineer, .NET, React, Node.js, AI, Web Development" />
+	<meta name="description" content="Full Stack Software Developer - Terminal Portfolio" />
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/custom.css" />
+	<link rel="stylesheet" href="assets/css/terminal.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-	<!-- AOS Animation Library -->
-	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-	<!-- EmailJS -->
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-	<script type="text/javascript">
-		(function(){
-			emailjs.init("Suman Humagain");
-		})();
-
-		function sendEmail(){
-			var templateParams = {
-				name: document.getElementById('name').value,
-				email: document.getElementById('email').value,
-				subject: document.getElementById('subject').value,
-				body: document.getElementById('message').value
-			};
-
-			if(templateParams.email == "" || templateParams.body==""){
-				alert("Please fill up contact form.");
-				return false;
-			}
-
-			emailjs.send('service_gfb79qn', 'template_rvkq0Qj7', templateParams,'user_3Uejg691MvNNA6c0OfUbF')
-				.then(function(response) {
-					console.log('SUCCESS!', response.status, response.text);
-					alert('Your message has been sent successfully.');
-					document.getElementById("myForm").reset();
-				}, function(error) {
-					console.log('FAILED...', error);
-					alert('Failed to send message. Please try again.');
-				});
-		}
-	</script>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 
-<body class="is-preload">
+<body class="terminal-body">
+	<!-- Matrix Background -->
+	<canvas id="matrix-canvas"></canvas>
 
-	<!-- Particles Background -->
-	<div id="particles-js"></div>
+	<!-- Glitch Overlay -->
+	<div class="glitch-overlay"></div>
 
-	<!-- Theme Toggle Button -->
-	<button class="theme-toggle" aria-label="Toggle theme">
-		<i class="fas fa-moon"></i>
-	</button>
+	<!-- Scanlines -->
+	<div class="scanlines"></div>
 
-	<!-- Navigation -->
-	<nav id="nav">
-		<ul class="container">
-			<li><a href="#top">Home</a></li>
-			<li><a href="#skills">Skills</a></li>
-			<li><a href="#resume">Experience</a></li>
-			<li><a href="#portfolio">Projects</a></li>
-			<li><a href="#contact">Contact</a></li>
-		</ul>
-	</nav>
-
-	<!-- Hero Section -->
-	<section id="top">
-		<div class="container">
-			<div class="hero-content" data-aos="fade-up">
-				<img src="images/PP3.jpg" alt="Suman Humagain" />
-				<h1>Hi, I'm Suman Humagain</h1>
-				<div class="typing-text"></div>
-				<p class="hero-description">
-					Experienced Full Stack Software Developer with 7 years of expertise in building scalable web applications,
-					AI agents, and modern cloud-native solutions. Skilled in Python, TypeScript, React, and DevOps practices.
-				</p>
-				<a href="#portfolio" class="cta-button">View My Work</a>
+	<!-- Terminal Container -->
+	<div class="terminal-container">
+		<!-- Terminal Header -->
+		<div class="terminal-header">
+			<div class="terminal-buttons">
+				<span class="btn-close"></span>
+				<span class="btn-minimize"></span>
+				<span class="btn-maximize"></span>
 			</div>
-		</div>
-	</section>
-
-	<!-- Skills Section -->
-	<section id="skills">
-		<div class="container">
-			<div class="section-header" data-aos="fade-up">
-				<h2>Technical Skills</h2>
-				<p>Technologies and tools I work with</p>
+			<div class="terminal-title">
+				<i class="fas fa-terminal"></i> suman@portfolio:~$
 			</div>
-
-			<div class="skills-grid">
-				<div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-					<h3><i class="fas fa-code"></i> Frontend</h3>
-					<div class="skill-tags">
-						<span class="skill-tag">React</span>
-						<span class="skill-tag">Angular</span>
-						<span class="skill-tag">Next.js</span>
-						<span class="skill-tag">TypeScript</span>
-						<span class="skill-tag">JavaScript</span>
-						<span class="skill-tag">HTML5/CSS3</span>
-					</div>
-				</div>
-
-				<div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-					<h3><i class="fas fa-server"></i> Backend & Languages</h3>
-					<div class="skill-tags">
-						<span class="skill-tag">Python</span>
-						<span class="skill-tag">Node.js</span>
-						<span class="skill-tag">ASP.NET Core</span>
-						<span class="skill-tag">C#</span>
-						<span class="skill-tag">Ruby</span>
-						<span class="skill-tag">Kotlin</span>
-					</div>
-				</div>
-
-				<div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-					<h3><i class="fas fa-cloud"></i> DevOps & Cloud</h3>
-					<div class="skill-tags">
-						<span class="skill-tag">Docker</span>
-						<span class="skill-tag">Kubernetes</span>
-						<span class="skill-tag">AWS</span>
-						<span class="skill-tag">Azure</span>
-						<span class="skill-tag">Jenkins</span>
-						<span class="skill-tag">GitHub Actions</span>
-					</div>
-				</div>
-
-				<div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-					<h3><i class="fas fa-robot"></i> AI & Automation</h3>
-					<div class="skill-tags">
-						<span class="skill-tag">OpenAI Agents</span>
-						<span class="skill-tag">n8n</span>
-						<span class="skill-tag">MongoDB</span>
-						<span class="skill-tag">SQL Server</span>
-						<span class="skill-tag">Git</span>
-						<span class="skill-tag">JIRA</span>
-					</div>
-				</div>
-			</div>
-
-			<!-- Stats -->
-			<div class="stats-grid">
-				<div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
-					<i class="fas fa-briefcase"></i>
-					<div class="stat-number" data-target="4">0+</div>
-					<div class="stat-label">Companies Worked</div>
-				</div>
-				<div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
-					<i class="fas fa-project-diagram"></i>
-					<div class="stat-number" data-target="20">0+</div>
-					<div class="stat-label">Projects Completed</div>
-				</div>
-				<div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-					<i class="fas fa-code-branch"></i>
-					<div class="stat-number" data-target="15">0+</div>
-					<div class="stat-label">Technologies</div>
-				</div>
-				<div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
-					<i class="fas fa-clock"></i>
-					<div class="stat-number" data-target="7">0+</div>
-					<div class="stat-label">Years Experience</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Work Experience Timeline -->
-	<section id="resume">
-		<div class="container">
-			<div class="section-header" data-aos="fade-up">
-				<h2>Work Experience</h2>
-				<p>My professional journey</p>
-			</div>
-
-			<div class="timeline">
-				<!-- Experience 1 -->
-				<div class="timeline-item" data-aos="fade-right">
-					<div class="timeline-content">
-						<div class="timeline-number">1</div>
-						<h3>Cambrian College</h3>
-						<p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Sudbury, ON</p>
-						<p><strong>Full Stack Software Developer | 2024 – Present</strong></p>
-						<p>Developed web-based applications and AI-powered solutions including Inventory Management, Matchmaking systems, and WhatsApp AI agent. Focused on integration testing, modular development, and CI/CD workflows.</p>
-						<div class="skill-tags" style="margin-top: 1rem;">
-							<span class="skill-tag">React</span>
-							<span class="skill-tag">Node.js</span>
-							<span class="skill-tag">Python</span>
-							<span class="skill-tag">AI Agents</span>
-							<span class="skill-tag">n8n</span>
-							<span class="skill-tag">CI/CD</span>
-						</div>
-					</div>
-				</div>
-
-				<!-- Experience 2 -->
-				<div class="timeline-item" data-aos="fade-left">
-					<div class="timeline-content">
-						<div class="timeline-number">2</div>
-						<h3>Cotiviti Nepal Pvt. Ltd</h3>
-						<p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Nepal</p>
-						<p><strong>Full Stack Software Developer | 2022 – 2024</strong></p>
-						<p>Developed scalable web applications using React and Node.js. Implemented containerized development environments and improved internal libraries for efficient development workflows.</p>
-						<div class="skill-tags" style="margin-top: 1rem;">
-							<span class="skill-tag">React</span>
-							<span class="skill-tag">Node.js</span>
-							<span class="skill-tag">Docker</span>
-							<span class="skill-tag">CI/CD</span>
-						</div>
-					</div>
-				</div>
-
-				<!-- Experience 3 -->
-				<div class="timeline-item" data-aos="fade-right">
-					<div class="timeline-content">
-						<div class="timeline-number">3</div>
-						<h3>Synergy Info Systems Pvt. Ltd</h3>
-						<p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Nepal</p>
-						<p><strong>Full Stack Software Developer | 2018 – 2022</strong></p>
-						<p>Built enterprise applications using ReactJS, Angular, Node.js, ASP.NET Core, and MS SQL Server. Implemented CI/CD pipelines and delivered large-scale systems including Account Payables Software and EMarketplace.</p>
-						<div class="skill-tags" style="margin-top: 1rem;">
-							<span class="skill-tag">React</span>
-							<span class="skill-tag">Angular</span>
-							<span class="skill-tag">Node.js</span>
-							<span class="skill-tag">ASP.NET Core</span>
-							<span class="skill-tag">SQL Server</span>
-						</div>
-					</div>
-				</div>
-
-				<!-- Experience 4 -->
-				<div class="timeline-item" data-aos="fade-left">
-					<div class="timeline-content">
-						<div class="timeline-number">4</div>
-						<h3>Esignature Pvt. Ltd</h3>
-						<p class="timeline-location"><i class="fas fa-map-marker-alt"></i> Nepal</p>
-						<p><strong>Full Stack Software Developer | 2018</strong></p>
-						<p>Built and upgraded .NET Core and Angular applications. Developed secure, scalable MERN-based ecommerce solution with payment integration.</p>
-						<div class="skill-tags" style="margin-top: 1rem;">
-							<span class="skill-tag">.NET Core</span>
-							<span class="skill-tag">Angular</span>
-							<span class="skill-tag">MERN Stack</span>
-							<span class="skill-tag">Payment Integration</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Projects Portfolio -->
-	<section id="portfolio">
-		<div class="container">
-			<div class="section-header" data-aos="fade-up">
-				<h2>Featured Projects</h2>
-				<p>Some of my recent work</p>
-			</div>
-
-			<div class="projects-grid">
-				<!-- Project 1: Ecommerce -->
-				<div class="project-card" data-aos="fade-up" data-aos-delay="100">
-					<img src="images/Ecom.png" alt="E-commerce Project" class="project-image" />
-					<div class="project-info">
-						<h3>E-commerce Platform</h3>
-						<p>A dynamic e-commerce web application facilitating seamless online sale of diverse products with shopping cart, payment integration, and admin panel.</p>
-						<div class="project-tech">
-							<span class="tech-badge">MongoDB</span>
-							<span class="tech-badge">Express</span>
-							<span class="tech-badge">React</span>
-							<span class="tech-badge">Node.js</span>
-						</div>
-						<div class="project-links">
-							<a href="https://shop-me.onrender.com/" target="_blank" class="project-link">
-								<i class="fas fa-external-link-alt"></i> Live Demo
-							</a>
-							<a href="https://github.com/SumanHumagain/Ecom-Shop_Me" target="_blank" class="project-link">
-								<i class="fab fa-github"></i> Code
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 2: Boggle -->
-				<div class="project-card" data-aos="fade-up" data-aos-delay="200">
-					<img src="images/boggle.jpg" alt="Boggle Game" class="project-image" />
-					<div class="project-info">
-						<h3>Boggle Word Game</h3>
-						<p>An interactive word game with real-time gameplay, score tracking, and multiplayer capabilities. Built with modern web technologies.</p>
-						<div class="project-tech">
-							<span class="tech-badge">React.js</span>
-							<span class="tech-badge">Ruby on Rails</span>
-							<span class="tech-badge">API</span>
-						</div>
-						<div class="project-links">
-							<a href="https://github.com/SumanHumagain/Boggle" target="_blank" class="project-link">
-								<i class="fab fa-github"></i> View Code
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 3: Marketplace -->
-				<div class="project-card" data-aos="fade-up" data-aos-delay="300">
-					<img src="images/pic03.jpg" alt="Marketplace" class="project-image" />
-					<div class="project-info">
-						<h3>Marketplace Platform</h3>
-						<p>A comprehensive marketplace connecting vendors and users. Features include product listings, search functionality, and secure transactions.</p>
-						<div class="project-tech">
-							<span class="tech-badge">.NET</span>
-							<span class="tech-badge">SQL Server</span>
-							<span class="tech-badge">MVC</span>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 4: Task Tracking -->
-				<div class="project-card" data-aos="fade-up" data-aos-delay="100">
-					<img src="images/pic04.jpg" alt="Task Tracking System" class="project-image" />
-					<div class="project-info">
-						<h3>Task Tracking System</h3>
-						<p>A comprehensive system for managing and tracking organization's workflow with features like task assignment, progress monitoring, and reporting.</p>
-						<div class="project-tech">
-							<span class="tech-badge">.NET</span>
-							<span class="tech-badge">JavaScript</span>
-							<span class="tech-badge">SQL</span>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 5: Desktop AI Agent -->
-				<div class="project-card" data-aos="fade-up" data-aos-delay="200">
-					<img src="images/pic05.jpg" alt="Desktop AI Agent" class="project-image" />
-					<div class="project-info">
-						<h3>DeskAgent - AI Desktop Automation</h3>
-						<p>AI-powered desktop automation tool that executes natural language commands to control Windows PC. Features file operations, application launching, email sending, with safety controls and audit logging.</p>
-						<div class="project-tech">
-							<span class="tech-badge">Python</span>
-							<span class="tech-badge">OpenAI GPT-4</span>
-							<span class="tech-badge">Electron</span>
-							<span class="tech-badge">SQLite</span>
-						</div>
-						<div class="project-links">
-							<a href="https://github.com/SumanHumagain/DeskAgent" target="_blank" class="project-link">
-								<i class="fab fa-github"></i> View Code
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 6: Smart AI Scheduling -->
-				<div class="project-card" data-aos="fade-up" data-aos-delay="300">
-					<img src="images/pic06.jpg" alt="Smart AI Scheduling App" class="project-image" />
-					<div class="project-info">
-						<h3>Smart AI Scheduling App</h3>
-						<p>Intelligent scheduling application powered by AI that optimizes meeting arrangements, automates calendar management, and suggests optimal time slots based on user preferences.</p>
-						<div class="project-tech">
-							<span class="tech-badge">React</span>
-							<span class="tech-badge">Node.js</span>
-							<span class="tech-badge">AI/ML</span>
-							<span class="tech-badge">MongoDB</span>
-						</div>
-						<div class="project-links">
-							<a href="https://github.com/SumanHumagain/Scheduling" target="_blank" class="project-link">
-								<i class="fab fa-github"></i> View Code
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Contact Section -->
-	<section id="contact">
-		<div class="container">
-			<div class="section-header" data-aos="fade-up">
-				<h2>Get In Touch</h2>
-				<p>Let's work together on your next project</p>
-			</div>
-
-			<form id="myForm" data-aos="fade-up" data-aos-delay="100">
-				<div class="form-group">
-					<input type="text" id="name" name="name" placeholder="Your Name" required />
-				</div>
-				<div class="form-group">
-					<input type="email" id="email" name="email" placeholder="Your Email" required />
-				</div>
-				<div class="form-group">
-					<input type="text" id="subject" name="subject" placeholder="Subject" />
-				</div>
-				<div class="form-group">
-					<textarea id="message" name="message" placeholder="Your Message" required></textarea>
-				</div>
-				<button type="button" onclick="sendEmail()" class="btn-submit">
-					<i class="fas fa-paper-plane"></i> Send Message
+			<div class="terminal-controls">
+				<button class="theme-switch" id="themeSwitch" title="Toggle Theme">
+					<i class="fas fa-adjust"></i>
 				</button>
-			</form>
+			</div>
+		</div>
 
-			<div class="social-links" data-aos="fade-up" data-aos-delay="200">
-				<a href="https://www.linkedin.com/in/returnzerosh/" target="_blank" class="social-link" aria-label="LinkedIn">
-					<i class="fab fa-linkedin-in"></i>
-				</a>
-				<a href="https://github.com/SumanHumagain" target="_blank" class="social-link" aria-label="GitHub">
-					<i class="fab fa-github"></i>
-				</a>
-				<a href="mailto:your.email@example.com" class="social-link" aria-label="Email">
-					<i class="fas fa-envelope"></i>
-				</a>
+		<!-- Boot Sequence -->
+		<div id="boot-sequence" class="boot-sequence">
+			<div class="boot-line">System Starting...</div>
+			<div class="boot-line">Loading portfolio... <span class="success">[OK]</span></div>
+			<div class="boot-line">Initializing components... <span class="success">[OK]</span></div>
+			<div class="boot-line">Starting services... <span class="success">[OK]</span></div>
+			<div class="boot-line">Welcome to Suman's OS</div>
+			<div class="boot-line ascii-art">
+   _____ __  ____  ______    _   __
+  / ___// / / /  |/  /   |  / | / /
+  \__ \/ / / / /|_/ / /| | /  |/ /
+ ___/ / /_/ / /  / / ___ |/ /|  /
+/____/\____/_/  /_/_/  |_/_/ |_/
+			</div>
+		</div>
+
+		<!-- Terminal Content -->
+		<div id="terminal-content" class="terminal-content" style="display: none;">
+			<!-- Intro Section -->
+			<div class="terminal-section" id="intro">
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~</span>$ cat intro.txt
+				</div>
+				<div class="output">
+					<pre class="ascii-portrait">
+    ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    █░░░░░░░░▀█▄▀▄▀██████░▀█▄▀▄▀█
+    ░░░░░░░░░░░▀█▄█▄███▀░░░▀██▄█▄
+    ░░░░░░░░░░░░░▀████▀░░░░░░▀███
+					</pre>
+					<div class="glitch-text" data-text="SUMAN HUMAGAIN">SUMAN HUMAGAIN</div>
+					<div class="typing-container">
+						<span class="role-prefix">$ echo $ROLE > </span>
+						<span class="typing-text" id="typing-role"></span>
+						<span class="cursor">|</span>
+					</div>
+					<div class="info-grid">
+						<div class="info-item">
+							<span class="label">LOCATION:</span>
+							<span class="value blink">Sudbury, Ontario, Canada</span>
+						</div>
+						<div class="info-item">
+							<span class="label">EXPERIENCE:</span>
+							<span class="value">7+ years in production</span>
+						</div>
+						<div class="info-item">
+							<span class="label">STATUS:</span>
+							<span class="value success blink">[ONLINE & AVAILABLE]</span>
+						</div>
+					</div>
+					<div class="quick-links">
+						<a href="mailto:returnzerosh@gmail.com" class="terminal-link">
+							<i class="fas fa-envelope"></i> EMAIL
+						</a>
+						<a href="https://github.com/SumanHumagain" target="_blank" class="terminal-link">
+							<i class="fab fa-github"></i> GITHUB
+						</a>
+						<a href="https://www.linkedin.com/in/returnzerosh/" target="_blank" class="terminal-link">
+							<i class="fab fa-linkedin"></i> LINKEDIN
+						</a>
+					</div>
+				</div>
 			</div>
 
-			<footer style="text-align: center; margin-top: 3rem; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.1);">
-				<p style="color: var(--text-muted);">&copy; 2024 Suman Humagain. All rights reserved.</p>
-			</footer>
+			<!-- Navigation Menu -->
+			<div class="terminal-section">
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~</span>$ ls -la
+				</div>
+				<div class="output">
+					<div class="file-list">
+						<div class="file-item" onclick="navigate('skills')">
+							<i class="fas fa-folder"></i> <span class="file-name">skills/</span>
+							<span class="file-desc">Technical Arsenal</span>
+						</div>
+						<div class="file-item" onclick="navigate('experience')">
+							<i class="fas fa-folder"></i> <span class="file-name">experience/</span>
+							<span class="file-desc">Career Timeline</span>
+						</div>
+						<div class="file-item" onclick="navigate('projects')">
+							<i class="fas fa-folder"></i> <span class="file-name">projects/</span>
+							<span class="file-desc">Portfolio Showcase</span>
+						</div>
+						<div class="file-item" onclick="executeCommand('stats')">
+							<i class="fas fa-file-code"></i> <span class="file-name">stats.sh</span>
+							<span class="file-desc">Performance Metrics</span>
+						</div>
+						<!-- <div class="file-item" onclick="executeCommand('matrix')">
+							<i class="fas fa-file-code"></i> <span class="file-name">matrix.exe</span>
+							<span class="file-desc">Enter The Matrix</span>
+						</div> -->
+						<div class="file-item" onclick="executeCommand('contact')">
+							<i class="fas fa-file"></i> <span class="file-name">contact.txt</span>
+							<span class="file-desc">Get In Touch</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Skills Section -->
+			<div class="terminal-section hidden" id="skills-section">
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~/skills</span>$ cat tech_stack.json
+				</div>
+				<div class="output">
+					<pre class="json-output">{
+  "<span class="json-key">frontend</span>": [
+    "<span class="skill-tag">React.js</span>", "<span class="skill-tag">Angular</span>", "<span class="skill-tag">Next.js</span>",
+    "<span class="skill-tag">TypeScript</span>", "<span class="skill-tag">JavaScript</span>", "<span class="skill-tag">HTML5/CSS3</span>"
+  ],
+  "<span class="json-key">backend</span>": [
+    "<span class="skill-tag">Python</span>", "<span class="skill-tag">Node.js</span>", "<span class="skill-tag">ASP.NET Core</span>",
+    "<span class="skill-tag">C#</span>", "<span class="skill-tag">Ruby</span>", "<span class="skill-tag">Kotlin</span>"
+  ],
+  "<span class="json-key">devops_cloud</span>": [
+    "<span class="skill-tag">Docker</span>", "<span class="skill-tag">Kubernetes</span>", "<span class="skill-tag">AWS</span>",
+    "<span class="skill-tag">Azure</span>", "<span class="skill-tag">Jenkins</span>", "<span class="skill-tag">GitHub Actions</span>"
+  ],
+  "<span class="json-key">ai_automation</span>": [
+    "<span class="skill-tag">OpenAI Agents</span>", "<span class="skill-tag">n8n</span>", "<span class="skill-tag">Machine Learning</span>",
+    "<span class="skill-tag">LLM Integration</span>", "<span class="skill-tag">Workflow Automation</span>"
+  ],
+  "<span class="json-key">databases</span>": [
+    "<span class="skill-tag">MongoDB</span>", "<span class="skill-tag">SQL Server</span>", "<span class="skill-tag">PostgreSQL</span>",
+    "<span class="skill-tag">MySQL</span>", "<span class="skill-tag">Redis</span>"
+  ]
+}</pre>
+					<div class="skill-graph">
+						<div class="graph-bar" style="--percentage: 95%">
+							<span class="bar-label">Full Stack Development</span>
+							<div class="bar-fill"></div>
+							<span class="bar-value">95%</span>
+						</div>
+						<div class="graph-bar" style="--percentage: 90%">
+							<span class="bar-label">AI & Automation</span>
+							<div class="bar-fill"></div>
+							<span class="bar-value">90%</span>
+						</div>
+						<div class="graph-bar" style="--percentage: 88%">
+							<span class="bar-label">DevOps & Cloud</span>
+							<div class="bar-fill"></div>
+							<span class="bar-value">88%</span>
+						</div>
+						<div class="graph-bar" style="--percentage: 92%">
+							<span class="bar-label">Database Design</span>
+							<div class="bar-fill"></div>
+							<span class="bar-value">92%</span>
+						</div>
+					</div>
+				</div>
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~/skills</span>$ <button onclick="navigate('back')" class="cmd-btn">cd ..</button>
+				</div>
+			</div>
+
+			<!-- Experience Section -->
+			<div class="terminal-section hidden" id="experience-section">
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~/experience</span>$ git log --all --graph --pretty=format:'%h - %s (%ar)'
+				</div>
+				<div class="output">
+					<div class="timeline-graph">
+						<div class="timeline-item">
+							<div class="timeline-marker present">●</div>
+							<div class="timeline-content">
+								<div class="company-header">
+									<span class="company">Cambrian College</span>
+									<span class="period">2024 - Present</span>
+								</div>
+								<div class="role">Full Stack Software Developer</div>
+								<div class="location"><i class="fas fa-map-marker-alt"></i> Sudbury, ON</div>
+								<ul class="achievements">
+									<li>Developed web-based applications and AI-powered solutions</li>
+									<li>Built Inventory Management, Matchmaking systems, and WhatsApp AI agent</li>
+									<li>Focused on integration testing, modular development, and CI/CD</li>
+								</ul>
+								<div class="tech-tags">
+									<span class="tech">React</span>
+									<span class="tech">Node.js</span>
+									<span class="tech">Python</span>
+									<span class="tech">AI Agents</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-item">
+							<div class="timeline-marker">●</div>
+							<div class="timeline-content">
+								<div class="company-header">
+									<span class="company">Cotiviti Nepal Pvt. Ltd</span>
+									<span class="period">2022 - 2024</span>
+								</div>
+								<div class="role">Full Stack Software Developer</div>
+								<div class="location"><i class="fas fa-map-marker-alt"></i> Nepal</div>
+								<ul class="achievements">
+									<li>Developed scalable web applications using React and Node.js</li>
+									<li>Implemented containerized development environments</li>
+									<li>Improved internal libraries for efficient workflows</li>
+								</ul>
+								<div class="tech-tags">
+									<span class="tech">React</span>
+									<span class="tech">Node.js</span>
+									<span class="tech">Docker</span>
+									<span class="tech">CI/CD</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-item">
+							<div class="timeline-marker">●</div>
+							<div class="timeline-content">
+								<div class="company-header">
+									<span class="company">Synergy Info Systems Pvt. Ltd</span>
+									<span class="period">2018 - 2022</span>
+								</div>
+								<div class="role">Full Stack Software Developer</div>
+								<div class="location"><i class="fas fa-map-marker-alt"></i> Nepal</div>
+								<ul class="achievements">
+									<li>Built enterprise applications using ReactJS, Angular, Node.js</li>
+									<li>Implemented CI/CD pipelines</li>
+									<li>Delivered Account Payables Software and EMarketplace</li>
+								</ul>
+								<div class="tech-tags">
+									<span class="tech">React</span>
+									<span class="tech">Angular</span>
+									<span class="tech">ASP.NET Core</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="timeline-item">
+							<div class="timeline-marker">●</div>
+							<div class="timeline-content">
+								<div class="company-header">
+									<span class="company">Esignature Pvt. Ltd</span>
+									<span class="period">2018</span>
+								</div>
+								<div class="role">Full Stack Software Developer</div>
+								<div class="location"><i class="fas fa-map-marker-alt"></i> Nepal</div>
+								<ul class="achievements">
+									<li>Built and upgraded .NET Core and Angular applications</li>
+									<li>Developed MERN-based ecommerce with payment integration</li>
+								</ul>
+								<div class="tech-tags">
+									<span class="tech">.NET Core</span>
+									<span class="tech">Angular</span>
+									<span class="tech">MERN</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~/experience</span>$ <button onclick="navigate('back')" class="cmd-btn">cd ..</button>
+				</div>
+			</div>
+
+			<!-- Projects Section -->
+			<div class="terminal-section hidden" id="projects-section">
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~/projects</span>$ ls -lh
+				</div>
+				<div class="output">
+					<div class="project-grid">
+						<div class="project-card">
+							<div class="project-header">
+								<i class="fas fa-robot"></i>
+								<span class="project-name">DeskAgent</span>
+								<span class="project-status running">RUNNING</span>
+							</div>
+							<div class="project-desc">
+								AI-powered desktop automation tool that executes natural language commands to control Windows PC. Features file operations, application launching, and email sending.
+							</div>
+							<div class="project-tech">
+								<span class="tech">Python</span>
+								<span class="tech">OpenAI GPT-4</span>
+								<span class="tech">Electron</span>
+								<span class="tech">SQLite</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/SumanHumagain/DeskAgent" target="_blank" class="project-link">
+									<i class="fab fa-github"></i> Source
+								</a>
+							</div>
+						</div>
+
+						<div class="project-card">
+							<div class="project-header">
+								<i class="fas fa-calendar-alt"></i>
+								<span class="project-name">Smart AI Scheduling</span>
+								<span class="project-status running">RUNNING</span>
+							</div>
+							<div class="project-desc">
+								Intelligent scheduling application powered by AI that optimizes meeting arrangements and automates calendar management.
+							</div>
+							<div class="project-tech">
+								<span class="tech">React</span>
+								<span class="tech">Node.js</span>
+								<span class="tech">AI/ML</span>
+								<span class="tech">MongoDB</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/SumanHumagain/Scheduling" target="_blank" class="project-link">
+									<i class="fab fa-github"></i> Source
+								</a>
+							</div>
+						</div>
+
+						<div class="project-card">
+							<div class="project-header">
+								<i class="fas fa-shopping-cart"></i>
+								<span class="project-name">E-commerce Platform</span>
+								<span class="project-status deployed">DEPLOYED</span>
+							</div>
+							<div class="project-desc">
+								Dynamic e-commerce web application with shopping cart, payment integration, and admin panel.
+							</div>
+							<div class="project-tech">
+								<span class="tech">MongoDB</span>
+								<span class="tech">Express</span>
+								<span class="tech">React</span>
+								<span class="tech">Node.js</span>
+							</div>
+							<div class="project-links">
+								<a href="https://shop-me.onrender.com/" target="_blank" class="project-link">
+									<i class="fas fa-external-link-alt"></i> Demo
+								</a>
+								<a href="https://github.com/SumanHumagain/Ecom-Shop_Me" target="_blank" class="project-link">
+									<i class="fab fa-github"></i> Source
+								</a>
+							</div>
+						</div>
+
+						<div class="project-card">
+							<div class="project-header">
+								<i class="fas fa-gamepad"></i>
+								<span class="project-name">Boggle Word Game</span>
+								<span class="project-status deployed">DEPLOYED</span>
+							</div>
+							<div class="project-desc">
+								Interactive word game with real-time gameplay, score tracking, and multiplayer capabilities.
+							</div>
+							<div class="project-tech">
+								<span class="tech">React.js</span>
+								<span class="tech">Ruby on Rails</span>
+								<span class="tech">WebSocket</span>
+							</div>
+							<div class="project-links">
+								<a href="https://github.com/SumanHumagain/Boggle" target="_blank" class="project-link">
+									<i class="fab fa-github"></i> Source
+								</a>
+							</div>
+						</div>
+
+						<div class="project-card">
+							<div class="project-header">
+								<i class="fas fa-store"></i>
+								<span class="project-name">Marketplace Platform</span>
+								<span class="project-status archived">ARCHIVED</span>
+							</div>
+							<div class="project-desc">
+								Comprehensive marketplace connecting vendors and users with product listings and secure transactions.
+							</div>
+							<div class="project-tech">
+								<span class="tech">.NET</span>
+								<span class="tech">SQL Server</span>
+								<span class="tech">MVC</span>
+							</div>
+						</div>
+
+						<div class="project-card">
+							<div class="project-header">
+								<i class="fas fa-tasks"></i>
+								<span class="project-name">Task Tracking System</span>
+								<span class="project-status archived">ARCHIVED</span>
+							</div>
+							<div class="project-desc">
+								Comprehensive system for managing workflow with task assignment, progress monitoring, and reporting.
+							</div>
+							<div class="project-tech">
+								<span class="tech">.NET</span>
+								<span class="tech">JavaScript</span>
+								<span class="tech">SQL</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~/projects</span>$ <button onclick="navigate('back')" class="cmd-btn">cd ..</button>
+				</div>
+			</div>
+
+			<!-- Command Input -->
+			<div class="command-input-container">
+				<div class="prompt-line">
+					<span class="user">visitor@portfolio</span>:<span class="path">~</span>$
+					<input type="text" id="commandInput" class="command-input" placeholder="type 'help' for commands..." autocomplete="off">
+				</div>
+			</div>
 		</div>
-	</section>
+	</div>
+
+	<!-- Easter Egg Modal -->
+	<div id="matrix-modal" class="modal">
+		<div class="modal-content matrix-mode">
+			<span class="close-modal" onclick="closeMatrix()">&times;</span>
+			<div class="matrix-text">
+				<p>Wake up, Neo...</p>
+				<p>The Matrix has you...</p>
+				<p>Follow the white rabbit.</p>
+				<p class="knock">Knock, knock, Neo.</p>
+			</div>
+			<canvas id="matrix-modal-canvas"></canvas>
+		</div>
+	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-
-	<!-- Particles.js -->
-	<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-	<!-- Typed.js -->
 	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-	<!-- AOS Animation -->
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	<script>
-		AOS.init({
-			duration: 800,
-			easing: 'ease-in-out',
-			once: true,
-			offset: 100
-		});
-	</script>
-
-	<!-- Custom JS -->
-	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/terminal.js"></script>
 </body>
 </html>
